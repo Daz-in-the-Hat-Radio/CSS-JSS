@@ -1,137 +1,59 @@
-body{
-  margin:0;
-  padding:0;
-  background-color:#fafafa;
+@function makelongshadow($length,$angle) {
+  $val: 0px 0px transparent;
+  @for $i from 1 through $length {
+    $val: #{$val}, #{$i}px #{$i*$angle}px #aaa;
+  }
+  @return $val;
 }
 
-.header-blog .container {
-  position: relative;
-  height: 100%;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto:700,900');
 
-.header-blog, .stats, footer, .video, .call-to-action {
-  background-image: url("https://3.bp.blogspot.com/-04vqcpHNiuo/W0x2THLFZXI/AAAAAAAAOl8/DUvOAykZU9Q0rVaRw4nFTWQM-d8__k-agCLcBGAs/s1600/dresscounter.jpg");
-}
-
-.header-blog {
-  height: 60vh;
-  padding-top: 100px;
-  margin-top:70px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  -webkit-box-shadow: 0 15px 30px 0 rgba(5, 16, 44, .15);
-  box-shadow: 0 15px 30px 0 rgba(5, 16, 44, .15);
-}
-
-
-.bg-animation {
-  -webkit-animation: bg-animation 25s ease-in-out infinite;
-  animation: bg-animation 25s ease-in-out infinite;
-}
-
-
-header{
-  display:block;
-}
-
-.header-blog .container {
-  position: relative;
-  height: 100%;
-}
-
-.header-row {
-  height: 100%;
-}
-
-.white {
-  color: #F7F8FC;
-}
-.h1, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
-}
-
-.white-link {
-  font-weight: bold;
-  opacity: .7;
-  color: #F7F8FC;
-  transition: .4s;
-  -webkit-transition: .4s;
-}
-
-.white-link:hover {
-  opacity: 1;
-  color: #F7F8FC;
-}
-
-/*****animated text start*****/
-h1{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-transform: uppercase;
-  margin:0;
-  padding:0;
-  letter-spacing: 5px;
-  color:transparent;
-}
-
-h1:before{
-  content: attr(data-text);
-  position:absolute;
-  top: 0px;
-  left:0px;
-  width:100%;
-  height:100%;
-  color:#FFF;
+body {
+  background: radial-gradient(#fff, #aaa);
+  background-size: 100vw 100vh; 
   overflow: hidden;
-  border-right: 1px solid #FFF;
-  animation: type 10s steps(18) infinite;
-  white-space:nowrap;
+  padding-top: 40vh;
 }
 
-@keyframes type {
-  
-  0%{
-    width:0%;
-  }
-  
-  50%{
-    width:100%;
-    
-  }
-  
-  100%{
-    width:0%;
-  }
-  
-}
-/*****animated text End*****/
-
-
-
-@-webkit-keyframes bg-animation {
-    0% {
-        background-position: top;
-    }
-
-    50% {
-        background-position: bottom;
-    }
-    100% {
-        background-position: top;
-    }
+.txt {
+  text-align: center;
+  font-family: 'Roboto';
+  font-size: 12vmin;
+  font-weight: 700;
+  animation: netflix_style 3.5s infinite;
+  outline: none;
+  white-space: nowrap;
 }
 
-@keyframes bg-animation {
-    0% {
-        background-position: top;
-    }
-
-    50% {
-        background-position: bottom;
-    }
-    100% {
-        background-position: top;
-    }
+@keyframes netflix_style {
+  0% {
+    text-shadow: makelongshadow(100,1);
+    color:#f3f3f3;
+    transform: scale(1.5, 1.5);
+  }
+  10% {
+    text-shadow: makelongshadow(100,1.5);
+    color:#f3f3f3;
+    transform: scale(1.5, 1.5);
+  }
+  15% {
+     color:#f3f3f3;
+  }
+  20% {    
+    color:#e90418;
+    text-shadow: none;
+    transform: scale(1.1, 1.1);
+  }
+  75% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;    
+    color:#e90418;
+    transform: scale(0.85, 0.9);
+  }
+  
+  100% {
+    opacity: 0;
+  }
 }
