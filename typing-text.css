@@ -1,0 +1,137 @@
+body{
+  margin:0;
+  padding:0;
+  background-color:#fafafa;
+}
+
+.header-blog .container {
+  position: relative;
+  height: 100%;
+}
+
+.header-blog, .stats, footer, .video, .call-to-action {
+  background-image: url("https://3.bp.blogspot.com/-04vqcpHNiuo/W0x2THLFZXI/AAAAAAAAOl8/DUvOAykZU9Q0rVaRw4nFTWQM-d8__k-agCLcBGAs/s1600/dresscounter.jpg");
+}
+
+.header-blog {
+  height: 60vh;
+  padding-top: 100px;
+  margin-top:70px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: 0 15px 30px 0 rgba(5, 16, 44, .15);
+  box-shadow: 0 15px 30px 0 rgba(5, 16, 44, .15);
+}
+
+
+.bg-animation {
+  -webkit-animation: bg-animation 25s ease-in-out infinite;
+  animation: bg-animation 25s ease-in-out infinite;
+}
+
+
+header{
+  display:block;
+}
+
+.header-blog .container {
+  position: relative;
+  height: 100%;
+}
+
+.header-row {
+  height: 100%;
+}
+
+.white {
+  color: #F7F8FC;
+}
+.h1, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.white-link {
+  font-weight: bold;
+  opacity: .7;
+  color: #F7F8FC;
+  transition: .4s;
+  -webkit-transition: .4s;
+}
+
+.white-link:hover {
+  opacity: 1;
+  color: #F7F8FC;
+}
+
+/*****animated text start*****/
+h1{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  margin:0;
+  padding:0;
+  letter-spacing: 5px;
+  color:transparent;
+}
+
+h1:before{
+  content: attr(data-text);
+  position:absolute;
+  top: 0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  color:#FFF;
+  overflow: hidden;
+  border-right: 1px solid #FFF;
+  animation: type 10s steps(18) infinite;
+  white-space:nowrap;
+}
+
+@keyframes type {
+  
+  0%{
+    width:0%;
+  }
+  
+  50%{
+    width:100%;
+    
+  }
+  
+  100%{
+    width:0%;
+  }
+  
+}
+/*****animated text End*****/
+
+
+
+@-webkit-keyframes bg-animation {
+    0% {
+        background-position: top;
+    }
+
+    50% {
+        background-position: bottom;
+    }
+    100% {
+        background-position: top;
+    }
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: top;
+    }
+
+    50% {
+        background-position: bottom;
+    }
+    100% {
+        background-position: top;
+    }
+}
