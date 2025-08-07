@@ -26,7 +26,7 @@ body {
       opacity: 0;
 
       .letter {
-        transform-origin: center center 25px;
+        transform-origin: left 25px;
 
         &.out {
           transform: rotateX(90deg);
