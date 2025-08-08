@@ -15,9 +15,9 @@ body {
 .dropping-texts {
   display: inline-block;
   width: 100%; /* Full width of parent */
-  text-align: center; /* Center text */
+  text-align: left; /* centre text */
   min-height: 4vw; /* Scales vertically with width, adjustable */
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .dropping-texts > div {
