@@ -1,0 +1,117 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: transparent; /* Make body background transparent */
+  min-height: 100vh;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  padding: 20px;
+}
+
+/* Buttons for days of the week */
+.day-buttons {
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 4px;
+}
+.day-buttons button {
+  margin: 2px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.day-buttons button:hover {
+  background-color: #0056b3;
+}
+
+/* Carousel styles */
+.carousel-container {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  overflow: hidden;
+  background: transparent; /* Make background transparent */
+}
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  background: transparent; /* Make background transparent */
+}
+.carousel-item {
+  flex: 0 0 calc(100% / 3);
+  padding: 10px;
+  position: relative; /* for caption overlay */
+  background: transparent; /* transparent background for items */
+}
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Square aspect ratio */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent; /* transparent background */
+}
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+/* Hover zoom effect remains */
+.carousel-item img:hover {
+  transform: scale(1.05);
+}
+.caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  border-radius: 0 0 10px 10px;
+  font-size: 14px;
+  color: #fff;
+}
+.caption span {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.caption span.line1 {
+  font-weight: bold;
+}
+
+/* Navigation arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  user-select: none;
+  z-index: 10;
+}
+.arrow-left { left: 10px; }
+.arrow-right { right: 10px; }
+.arrow:hover { background-color: #0056b3; }
+
+@media(max-width: 600px){
+  .carousel-item { flex: 0 0 100%; }
+}
