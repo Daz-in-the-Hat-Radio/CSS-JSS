@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Carousel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Container for the entire carousel section -->
+    <div class="carousel-container">
+        <!-- Title Box Section -->
+        <div class="title-box">
+            <div class="title" data-title="Quantum Entanglement">Quantum Entanglement</div>
+            <div class="title" data-title="Project Alpha">Project Alpha</div>
+            <div class="title" data-title="Neuro-Link UI">Neuro-Link UI</div>
+            <div class="title" data-title="Project Chimera">Project Chimera</div>
+            <div class="title" data-title="Aether Network">Aether Network</div>
+        </div>
+
+        <!-- Video Carousel Box -->
+        <div class="carousel-box">
+            <button class="carousel-btn left-btn">&lt;</button>
+            <div class="carousel-track">
+                <!-- Video 1: Quantum Entanglement -->
+                <div class="carousel-item">
+                    <div class="video-placeholder" data-video-id="dQw4w9WgXcQ"></div>
+                </div>
+                <!-- Video 2: Project Alpha -->
+                <div class="carousel-item">
+                    <div class="video-placeholder" data-video-id="abc123xyz"></div>
+                </div>
+                <!-- Video 3: Neuro-Link UI -->
+                <div class="carousel-item">
+                    <div class="video-placeholder" data-video-id="def456abc"></div>
+                </div>
+                <!-- Video 4: Project Chimera -->
+                <div class="carousel-item">
+                    <div class="video-placeholder" data-video-id="ghi789def"></div>
+                </div>
+                <!-- Video 5: Aether Network -->
+                <div class="carousel-item">
+                    <div class="video-placeholder" data-video-id="jkl012ghi"></div>
+                </div>
+            </div>
+            <button class="carousel-btn right-btn">&gt;</button>
+        </div>
+
+        <!-- Snippet Box Section -->
+        <div class="snippet-box">
+            <p class="snippet" data-snippet="Visualizing complex quantum states through advanced rendering techniques. Real-time simulation of parallel realities. (PHASE III: 54% COMPLETE)">Quantum Entanglement</p>
+            <p class="snippet" data-snippet="Exploring the neon-drenched landscapes of a digital frontier. AI-driven procedural generation creates infinite cityscapes. (PHASE II: 10% COMPLETE)">Project Alpha</p>
+            <p class="snippet" data-snippet="Designing intuitive interfaces for brain-computer interaction. Holographic elements respond to neural patterns. (PHASE I: 65% COMPLETE)">Neuro-Link UI</p>
+            <p class="snippet" data-snippet="Developing cutting-edge propulsion systems for intergalactic travel. Fusion-driven engines push the limits of physics. (PHASE II: 75% COMPLETE)">Project Chimera</p>
+            <p class="snippet" data-snippet="Building a decentralized data network leveraging quantum blockchain and next-gen P2P technology. (PHASE III: 95% COMPLETE)">Aether Network</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

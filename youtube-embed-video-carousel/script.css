@@ -1,0 +1,92 @@
+/* Container Styling */
+.carousel-container {
+    width: 800px; /* Matches carousel-box and snippet-box width */
+    margin: 0 auto;
+    background: #f0f0f0; /* Light background */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Title Box Styling */
+.title-box {
+    width: 800px;
+    height: 50px;
+    background: #f0f0f0; /* Light background */
+    overflow: hidden;
+    position: relative;
+}
+.title {
+    font-weight: bold;
+    font-family: Inter, sans-serif;
+    position: absolute;
+    white-space: nowrap;
+    transform: translateX(100%);
+    transition: transform 1s ease;
+}
+
+/* Video Carousel Box Styling */
+.carousel-box {
+    width: 800px;
+    height: 450px;
+    background: #f0f0f0; /* Light background */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    cursor: grab;
+}
+.carousel-item {
+    min-width: 600px;
+    height: 400px;
+    margin: 0 10px;
+}
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #ccc; /* Placeholder background */
+    border: 2px solid #000;
+}
+.carousel-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+}
+.left-btn { left: 10px; }
+.right-btn { right: 10px; }
+.carousel-track:active { cursor: grabbing; }
+
+/* Snippet Box Styling */
+.snippet-box {
+    width: 800px;
+    height: 100px;
+    background: #f0f0f0; /* Light background */
+    padding: 10px;
+    text-align: left;
+}
+.snippet {
+    display: none;
+    margin: 5px 0;
+}
+
+/* Hover Effect for Cursor */
+.carousel-track:hover {
+    cursor: hand;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 800px) {
+    .carousel-container, .carousel-box, .title-box, .snippet-box {
+        width: 100%;
+    }
+    .carousel-item {
+        min-width: 70%;
+    }
+}
