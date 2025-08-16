@@ -65,7 +65,8 @@ function setTransform() {
 }
 
 function setPositionByIndex() {
-    currentTranslate = -currentIndex * (items[0].offsetWidth + 20);
+    const itemWidth = items[0].offsetWidth + 20; // Includes margin
+    currentTranslate = -currentIndex * itemWidth;
     setTransform();
     updateContent();
 }
