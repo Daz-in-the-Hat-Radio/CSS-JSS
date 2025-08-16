@@ -13,12 +13,19 @@ const leftBtn = document.querySelector('.left-btn');
 const rightBtn = document.querySelector('.right-btn');
 const carouselBox = document.querySelector('.carousel-box');
 
-function updateCarousel() {
-    const itemWidth = carouselBox.offsetWidth * 0.75; // 75% of container width for each item
-    items.forEach(item => {
-        item.style.width = `${itemWidth}px`;
+function updateContent() {
+    titles.forEach((title, index) => {
+        if (index === currentIndex) {
+            title.style.transform = 'translateX(0)';
+            title.style.display = 'block';
+        } else {
+            title.style.transform = 'translateX(100%)';
+            title.style.display = 'none';
+        }
     });
-    setPositionByIndex();
+    snippets.forEach((snippet, index) => {
+        snippet.style.display = index === currentIndex ? 'block' : 'none';
+    });
 }
 
 function startDragging(e) {
@@ -42,6 +49,7 @@ function drag(e) {
     if (isDragging) {
         const currentPosition = getPositionX(e);
         currentTranslate = prevTranslate + currentPosition - startPos;
+        setTransform();
     }
 }
 
@@ -50,7 +58,6 @@ function getPositionX(e) {
 }
 
 function animation() {
-    setTransform();
     if (isDragging) requestAnimationFrame(animation);
 }
 
@@ -60,7 +67,8 @@ function setTransform() {
 }
 
 function setPositionByIndex() {
-    const itemWidth = carouselBox.offsetWidth * 0.75 + 10; // Includes margin
+    const containerWidth = carouselBox.offsetWidth;
+    const itemWidth = containerWidth * 0.75 + 10; // 75% of container width + margin
     currentTranslate = -currentIndex * itemWidth;
     setTransform();
     updateContent();
@@ -80,27 +88,20 @@ rightBtn.addEventListener('click', () => {
     }
 });
 
-function updateContent() {
-    titles.forEach((title, index) => {
-        if (index === currentIndex) {
-            title.style.transform = 'translateX(0)';
-            title.style.display = 'block';
-        } else {
-            title.style.transform = 'translateX(100%)';
-            title.style.display = 'none';
-        }
-    });
-    snippets.forEach((snippet, index) => {
-        snippet.style.display = index === currentIndex ? 'block' : 'none';
-    });
-}
-
 setTimeout(() => {
-    updateCarousel(); // Initial setup
+    setPositionByIndex();
     titles[currentIndex].style.transform = 'translateX(0)';
 }, 100);
 
 // Resize handler
 window.addEventListener('resize', () => {
-    updateCarousel();
+    setPositionByIndex();
 });
+
+track.addEventListener('mousedown', startDragging);
+track.addEventListener('touchstart', startDragging);
+track.addEventListener('mouseup', endDragging);
+track.addEventListener('touchend', endDragging);
+track.addEventListener('mousemove', drag);
+track.addEventListener('touchmove', drag);
+track.addEventListener('mouseleave', endDragging);
