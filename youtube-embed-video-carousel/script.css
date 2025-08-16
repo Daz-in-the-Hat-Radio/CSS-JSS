@@ -98,8 +98,20 @@
 }
 
 /* Hover Effect for Cursor */
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hover Effect for Cursor */
 .carousel-track:hover {
     cursor: hand;
+}
+
+/* Active dragging cursor */
+.carousel-track:active {
+    cursor: grabbing;
 }
 
 /* Responsive Adjustments */
@@ -111,3 +123,4 @@
         padding-bottom: 70%; /* Adjust aspect ratio for smaller screens */
     }
 }
+
