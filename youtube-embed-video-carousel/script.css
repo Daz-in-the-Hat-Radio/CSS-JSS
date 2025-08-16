@@ -1,19 +1,19 @@
 /* Container Styling */
 .carousel-container {
-    width: 100%; /* Make container fully responsive */
-    max-width: 1200px; /* Optional max width for larger screens */
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    background: #f0f0f0; /* Light background */
+    background: #f0f0f0;
     padding: 20px;
     text-align: center;
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    box-sizing: border-box;
 }
 
 /* Title Box Styling */
 .title-box {
     width: 100%;
     height: 50px;
-    background: #f0f0f0; /* Light background */
+    background: #f0f0f0;
     overflow: hidden;
     position: relative;
 }
@@ -24,15 +24,16 @@
     white-space: nowrap;
     transform: translateX(100%);
     transition: transform 1s ease;
-    width: 100%; /* Ensure title fits container */
+    width: 100%;
     box-sizing: border-box;
 }
 
 /* Video Carousel Box Styling */
 .carousel-box {
     width: 100%;
-    height: 450px; /* Keep height fixed or make responsive if needed */
-    background: #f0f0f0; /* Light background */
+    height: 0; /* Removed fixed height to make it dynamic */
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: #f0f0f0;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -43,19 +44,23 @@
     display: flex;
     transition: transform 0.5s ease;
     cursor: grab;
-    width: 100%; /* Ensure track takes full width */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     box-sizing: border-box;
 }
 .carousel-item {
-    min-width: 70%; /* Percentage-based width for responsiveness */
-    height: 400px;
-    margin: 0 10px;
+    flex: 0 0 70%; /* Flexible width, 70% of container */
+    height: 100%;
+    margin: 0 5px; /* Reduced margin for better scaling */
     box-sizing: border-box;
 }
 .video-placeholder {
     width: 100%;
     height: 100%;
-    background: #ccc; /* Placeholder background */
+    background: #ccc;
     border: 2px solid #000;
     box-sizing: border-box;
 }
@@ -69,6 +74,8 @@
     z-index: 1;
     top: 50%;
     transform: translateY(-50%);
+    height: 50px;
+    width: 30px;
 }
 .left-btn { left: 10px; }
 .right-btn { right: 10px; }
@@ -77,8 +84,8 @@
 /* Snippet Box Styling */
 .snippet-box {
     width: 100%;
-    height: 100px;
-    background: #f0f0f0; /* Light background */
+    height: auto; /* Dynamic height */
+    background: #f0f0f0;
     padding: 10px;
     text-align: left;
     box-sizing: border-box;
@@ -86,7 +93,7 @@
 .snippet {
     display: none;
     margin: 5px 0;
-    width: 100%; /* Ensure snippet fits container */
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -98,12 +105,9 @@
 /* Responsive Adjustments */
 @media (max-width: 800px) {
     .carousel-item {
-        min-width: 80%; /* Adjust for smaller screens */
+        flex: 0 0 80%; /* Wider items on small screens */
     }
     .carousel-box {
-        height: 300px; /* Reduce height on small screens */
-    }
-    .carousel-item {
-        height: 250px;
+        padding-bottom: 70%; /* Adjust aspect ratio for smaller screens */
     }
 }
