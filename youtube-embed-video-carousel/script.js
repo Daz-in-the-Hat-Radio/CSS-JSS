@@ -1,4 +1,3 @@
-// Initialize variables
 let isDragging = false;
 let startPos = 0;
 let currentTranslate = 0;
@@ -6,25 +5,21 @@ let prevTranslate = 0;
 let animationID = 0;
 let currentIndex = 0;
 
-// Get DOM elements
 const track = document.querySelector('.carousel-track');
 const items = Array.from(track.children);
 const titles = document.querySelectorAll('.title');
 const snippets = document.querySelectorAll('.snippet');
 const leftBtn = document.querySelector('.left-btn');
 const rightBtn = document.querySelector('.right-btn');
+const carouselBox = document.querySelector('.carousel-box');
 
-// Set initial title and snippet
-updateContent();
-
-// Drag functionality
-track.addEventListener('mousedown', startDragging);
-track.addEventListener('touchstart', startDragging);
-track.addEventListener('mouseup', endDragging);
-track.addEventListener('touchend', endDragging);
-track.addEventListener('mousemove', drag);
-track.addEventListener('touchmove', drag);
-track.addEventListener('mouseleave', endDragging);
+function updateCarousel() {
+    const itemWidth = carouselBox.offsetWidth * 0.75; // 75% of container width for each item
+    items.forEach(item => {
+        item.style.width = `${itemWidth}px`;
+    });
+    setPositionByIndex();
+}
 
 function startDragging(e) {
     isDragging = true;
@@ -65,13 +60,12 @@ function setTransform() {
 }
 
 function setPositionByIndex() {
-    const itemWidth = items[0].offsetWidth + 20; // Includes margin
+    const itemWidth = carouselBox.offsetWidth * 0.75 + 10; // Includes margin
     currentTranslate = -currentIndex * itemWidth;
     setTransform();
     updateContent();
 }
 
-// Button controls
 leftBtn.addEventListener('click', () => {
     if (currentIndex > 0) {
         currentIndex--;
@@ -86,7 +80,6 @@ rightBtn.addEventListener('click', () => {
     }
 });
 
-// Update title and snippet
 function updateContent() {
     titles.forEach((title, index) => {
         if (index === currentIndex) {
@@ -102,7 +95,12 @@ function updateContent() {
     });
 }
 
-// Initial slide-in effect for title
 setTimeout(() => {
+    updateCarousel(); // Initial setup
     titles[currentIndex].style.transform = 'translateX(0)';
 }, 100);
+
+// Resize handler
+window.addEventListener('resize', () => {
+    updateCarousel();
+});
